@@ -42,10 +42,14 @@ Ensure the following are ready:
 
 ## Step 2: AWS IAM Setup
 
-1. **Create an IAM User or Role**:
-   - Go to AWS IAM Console → Create User/Role.
-   - Attach the following policy:
-     - `AmazonEC2ContainerRegistryFullAccess`.
+1. **Create an IAM User**:
+   - Go to AWS IAM Console → Create User -provide user console
+   - -provide user console
+   - -provide user console
+   - Attach policy directly:
+     - `AdministratorAccess`.
+-![image](https://github.com/user-attachments/assets/91674915-f525-4f09-82a7-70c9de0ff3f2)
+
 
 2. **For IAM User**:
    - Note the **Access Key ID** and **Secret Access Key**.
