@@ -1,4 +1,4 @@
-# Jenkins Server Setup Guide
+# Jenkins Server Setup , slave server setup, node creation
 
 ## Step 1: Create a Key Pair
 - Generate a new key pair named `slave_key`.
@@ -9,7 +9,6 @@
 ## Step 2: Launch Jenkins Server
 
 ### Instance Configuration
-- **AMI**: `ubuntu`.
 - **Instance Type**: `t2-medium`.
 - **Key Pair**: `slave_key`.
 - **Advanced Settings**:
@@ -24,6 +23,8 @@ sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update -y
+sudo apt install -y fontconfig openjdk-17-jre
 sudo curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
 sudo echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update -y
@@ -56,7 +57,7 @@ http://<public-ip>:8080
 - Unlock Jenkins using the password found at:
 
 ```bash
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+/var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 ---
@@ -71,3 +72,70 @@ Dashboard > Manage Jenkins > Plugins > Available Plugins
 - Search for and install the `Publish Over SSH` plugin.
 
 ---
+
+## Step 5: Configure Slave Node
+
+### Launch Slave Instance
+- Launch a new instance named `slave1`.
+- Connect to it via SSH.
+- Run the following commands on the slave instance:
+
+```bash
+sudo apt update
+sudo apt install openjdk-17-jdk
+```
+
+### Configure Publish Over SSH
+- Navigate to:
+
+```
+Dashboard > Manage Jenkins > System > Publish Over SSH
+```
+
+- Add the following details:
+  - Paste your **private key**.
+  - **Hostname**: Public IP of `slave1`.
+
+- Save and test the connection.
+
+### Create a New Node
+- Navigate to:
+
+```
+Dashboard > Manage Jenkins > Nodes
+```
+
+- Create a node named `slave1`.
+- Fill in the required details and add credentials for `slave_key`.
+- Save the configuration.
+
+---
+
+## Step 6: Create and Build a Project
+
+### Create a New Item
+- Go to:
+
+```
+Dashboard > New Item
+```
+
+- Name your project and select the appropriate configuration.
+
+### Restrict Project to Slave Node
+- In the project configuration, specify:
+
+```
+Restrict where this project can be run: slave1
+```
+
+### Add Build Steps
+- Add **Execute Shell** steps to define build commands.
+
+### Save and Build
+- Save the project and trigger a build to verify the setup.
+
+---
+
+## Summary
+Following these steps will set up a Jenkins server and configure it with a slave node to run specific projects. For troubleshooting, ensure connectivity between Jenkins and the slave node and verify plugin installations.
