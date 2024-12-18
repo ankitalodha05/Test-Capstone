@@ -1,4 +1,4 @@
-# Step-by-Step Guide: Setting Up an EKS Cluster on Ubuntu
+# Setting Up an EKS Cluster on Ubuntu
 
 ## 1. Launch Ubuntu Instance and Connect
 - Launch an **EC2 Ubuntu** instance in AWS.
