@@ -11,6 +11,23 @@
 - **Git repository** containing a `Dockerfile` for your application.
 
 ---
+create an IAM user-
+- provide user console 
+-![image](https://github.com/user-attachments/assets/4f60412b-0e63-403c-9159-978eba286fe1)
+-administrator access
+-create
+-check the iam user created by open aws console in an new incongnite window with iam user credentials, check and close this window.
+----
+## Create a IAM Role 
+-service-EC2
+![image](https://github.com/user-attachments/assets/99308cd7-9ef9-41c7-a1f6-1ced2438cda9)
+-create role.
+
+-modify IAM Role as below
+![image](https://github.com/user-attachments/assets/e10e5ab9-1fd9-452c-a934-e300e7586be7)
+
+
+
 
 ## Step 1: Prepare Jenkins Slave Server
 
@@ -34,6 +51,8 @@
 5. **Verify Jenkins Slave Connectivity**:
    - Go to **Jenkins Dashboard → Manage Nodes**.
    - Ensure the slave node is connected.
+## do not need to install plugins(docker,docker pipeline,ECR) for jenkins freestyle job.
+33 do not need to add credentials in manage jenkins as we alredy given locally in point.4
 
 ---
 
@@ -47,23 +66,37 @@
    ```
 
 ---
+## step 3: create node
 
-## Step 3: Create Jenkins Freestyle Job
+1.Create Jenkins Slave Node:
+
+Go to Manage Jenkins → Manage Nodes.
+Add a new node with SSH connection details and verify connectivity.
+-![image](https://github.com/user-attachments/assets/83b4ac17-caea-45a7-ab1e-b472f3a5df72)
+-![image](https://github.com/user-attachments/assets/50709298-03a1-463c-adda-82ed9cb568f7)
+
+
+
+## Step 4: Create Jenkins Freestyle Job
 
 1. Go to **Jenkins Dashboard → New Item**.
 2. Name the job: `ECR_Freestyle_Job` → Select **Freestyle Project** → Click **OK**.
 3. **Configure Job**:
    - **Restrict Job to Slave Node**:
      - Under **General → Restrict where this project can be run**, set the **Label Expression** to match the Slave Node label.
-   - **Source Code Management**:
+   - **Source Code Management**: git
      - Select **None** (as Git cloning will be handled in the shell script).
+-![image](https://github.com/user-attachments/assets/55f912f5-e9b9-4bf0-b5fe-7a91cd124352)
+
 
 4. **Add Build Step**:
    - Select **Execute Shell**.
-   - Paste the following shell script:
+   - Paste the following shell script: (replace in command - Region, Account ID ,ECR Repository URI )
 
 ```bash
 #!/bin/bash
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 746669215817.dkr.ecr.us-east-1.amazonaws.com
+
 
 sudo git clone https://github.com/ashrafgate/E-to-E-DevOps-Pipeline-WebApp-AK.git
 sleep 10
@@ -91,6 +124,11 @@ docker push 746669215817.dkr.ecr.us-east-1.amazonaws.com/app/webapp
 
 1. Go to AWS Console → **ECR**.
 2. Verify that the image `app/webapp:latest` appears in the repository.
+-![image](https://github.com/user-attachments/assets/134e3d2e-5000-4623-9dce-1eb194734e83)
+- my history
+-![image](https://github.com/user-attachments/assets/4957ea81-2dc5-4178-8009-ca8568abd228)
+
+
 
 ---
 
