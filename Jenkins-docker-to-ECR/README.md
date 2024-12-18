@@ -1,6 +1,5 @@
 
-# Push Docker Image to AWS ECR using Jenkins
-
+# Push Docker Images to AWS ECR with Jenkins Pipeline
 ## Prerequisites
 Ensure the following are ready:
 
