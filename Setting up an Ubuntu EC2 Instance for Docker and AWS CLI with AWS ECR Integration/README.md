@@ -1,4 +1,4 @@
-# Setting up an Ubuntu EC2 Instance for Docker and AWS CLI with AWS ECR Integration
+# ECR Integration: Deploying Docker and AWS CLI on Ubuntu EC2
 
 ## Objective
 In this guide, we will set up an Ubuntu EC2 instance to install Docker, AWS CLI, and integrate it with AWS Elastic Container Registry (ECR). The goal is to pull Docker images and run them as containers.
