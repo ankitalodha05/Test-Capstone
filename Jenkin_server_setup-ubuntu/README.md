@@ -70,6 +70,8 @@ Dashboard > Manage Jenkins > Plugins > Available Plugins
 ```
 
 - Search for and install the `Publish Over SSH` plugin.
+-![image](https://github.com/user-attachments/assets/db677545-2a70-4857-ad76-c28a027e6cac)
+
 
 ---
 
@@ -94,7 +96,11 @@ Dashboard > Manage Jenkins > System > Publish Over SSH
 
 - Add the following details:
   - Paste your **private key**.
+-![image](https://github.com/user-attachments/assets/eb5b775f-e49d-468c-a742-bdbac9e8cd68)
+
   - **Hostname**: Public IP of `slave1`.
+
+-![image](https://github.com/user-attachments/assets/6acf4349-ff8d-4de4-b14b-c15ce279249e)
 
 - Save and test the connection.
 
@@ -109,6 +115,18 @@ Dashboard > Manage Jenkins > Nodes
 - Fill in the required details and add credentials for `slave_key`.
 - Save the configuration.
 
+-![image](https://github.com/user-attachments/assets/885d1686-10ab-4680-a542-e418678f5e94)
+-![image](https://github.com/user-attachments/assets/55266995-204a-4e18-a189-7946bbcf33b5)
+
+---
+### for add crediantials
+-![image](https://github.com/user-attachments/assets/64461695-952e-48a2-85b2-751ee6a99d8c)
+
+- save and build
+- now you can see node is created
+![image](https://github.com/user-attachments/assets/3d01b04c-2648-4f4c-819d-d8662f276c5b)
+
+
 ---
 
 ## Step 6: Create and Build a Project
@@ -119,6 +137,7 @@ Dashboard > Manage Jenkins > Nodes
 ```
 Dashboard > New Item
 ```
+-![image](https://github.com/user-attachments/assets/86949cce-a852-4539-a39b-843bfe110e40)
 
 - Name your project and select the appropriate configuration.
 
@@ -128,12 +147,17 @@ Dashboard > New Item
 ```
 Restrict where this project can be run: slave1
 ```
+-![image](https://github.com/user-attachments/assets/992d0e8c-a5f9-4bfd-bbd7-5920e6790073)
+
 
 ### Add Build Steps
 - Add **Execute Shell** steps to define build commands.
+-![image](https://github.com/user-attachments/assets/5a0ce754-baae-4a08-8ae6-88c84824a763)
 
 ### Save and Build
 - Save the project and trigger a build to verify the setup.
+-![image](https://github.com/user-attachments/assets/78a5d93c-0c7f-4b5b-8bb8-dfe41340e7b0)
+
 
 ---
 
