@@ -96,11 +96,15 @@ Dashboard > Manage Jenkins > Plugins > Available Plugins
 
 - Connect to it via SSH.
 - Run the following commands on the slave instance:
-
+-**Install Docker**:
+  
 ```bash
 sudo apt update
 sudo apt install openjdk-17-jdk
 ```
+-**install AWS CLI**:
+
+```bash
 
 ### Configure Publish Over SSH
 - Navigate to:
