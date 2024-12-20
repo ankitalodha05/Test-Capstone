@@ -81,11 +81,11 @@ Dashboard > Manage Jenkins > Plugins > Available Plugins
 
 ---
 
-### Step 5: Configure Slave Node
+# Step 5: Configure Slave Node
 
 ## Launch Slave Instance
 
-# Instance Configuration
+### Instance Configuration
 
 - Launch a new instance named `slave`.
 - **Instance Type**: `t2-micro`.
@@ -115,7 +115,8 @@ Dashboard > Manage Jenkins > System > Publish Over SSH
 
   - **Hostname**: Public IP of `slave1`.
 
--![image](https://github.com/user-attachments/assets/6acf4349-ff8d-4de4-b14b-c15ce279249e)
+-![image](https://github.com/user-attachments/assets/8e73baab-7a40-4d9a-b36b-559b8fa04700)
+
 
 - Save and test the connection.
 
