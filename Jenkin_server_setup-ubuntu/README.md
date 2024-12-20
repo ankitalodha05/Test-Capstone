@@ -105,6 +105,16 @@ sudo apt install openjdk-17-jdk
 -**install AWS CLI**:
 
 ```bash
+sudo apt -y install unzip curl
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+-**Configure AWS Credentials** on the slave**
+
+```bash
+aws configure
+```
 
 ### Configure Publish Over SSH
 - Navigate to:
