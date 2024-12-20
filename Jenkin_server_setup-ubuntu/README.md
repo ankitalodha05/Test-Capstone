@@ -1,7 +1,7 @@
 # Jenkins Server Setup , slave server setup, node creation
 
 ## Step 1: Create a Key Pair
-- Generate a new key pair named `slave_key`.
+- Generate a new key pair named `jenkin`.
 - Download and securely store the private key.
 
 ---
@@ -10,7 +10,9 @@
 
 ### Instance Configuration
 - **Instance Type**: `t2-medium`.
-- **Key Pair**: `slave_key`.
+- **AMI**:`ubuntu`.
+- **Key Pair**: `jenkin`.
+- **Security group**:`Default`.
 - **Advanced Settings**:
   - Add the following **User Data** script:
 
@@ -72,13 +74,26 @@ Dashboard > Manage Jenkins > Plugins > Available Plugins
 - Search for and install the `Publish Over SSH` plugin.
 -![image](https://github.com/user-attachments/assets/db677545-2a70-4857-ad76-c28a027e6cac)
 
+- For docker and ECR - search for and install the `Docker` ,`Docker Pipeline` and `Amazon ECR` plugin.
+-![image](https://github.com/user-attachments/assets/6f160d38-35ff-4f87-8d84-b2e7ca3f4bdc)
+
+
 
 ---
 
-## Step 5: Configure Slave Node
+### Step 5: Configure Slave Node
 
-### Launch Slave Instance
-- Launch a new instance named `slave1`.
+## Launch Slave Instance
+
+# Instance Configuration
+
+- Launch a new instance named `slave`.
+- **Instance Type**: `t2-micro`.
+- **AMI**:`ubuntu`.
+- **Key Pair**: `jenkin`.
+- **Security group**:`Default`.
+
+
 - Connect to it via SSH.
 - Run the following commands on the slave instance:
 
