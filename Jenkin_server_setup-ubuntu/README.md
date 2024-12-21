@@ -59,7 +59,7 @@ http://<public-ip>:8080
 - Unlock Jenkins using the password found at:
 
 ```bash
-/var/lib/jenkins/secrets/initialAdminPassword
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 ---
