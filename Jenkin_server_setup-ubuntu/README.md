@@ -116,7 +116,7 @@ sudo ./aws/install
 ```bash
 aws --version
 ```
--**Configure AWS Credentials** on the slave**
+-**Configure AWS Credentials** on the slave (root user credentials)**
 
 ```bash
 aws configure
