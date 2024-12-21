@@ -71,11 +71,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 Dashboard > Manage Jenkins > Plugins > Available Plugins
 ```
 
-- Search for and install the `Publish Over SSH` plugin.
--![image](https://github.com/user-attachments/assets/db677545-2a70-4857-ad76-c28a027e6cac)
+- Search for and install the `Publish Over SSH` , `Docker` , `Docker Pipeline` and `Amazon ECR` plugin.
 
-- For docker and ECR - search for and install the `Docker` ,`Docker Pipeline` and `Amazon ECR` plugin.
--![image](https://github.com/user-attachments/assets/6f160d38-35ff-4f87-8d84-b2e7ca3f4bdc)
+-![image](https://github.com/user-attachments/assets/6d02e237-d7ee-46e4-b7d9-bacfe86e5487)
+
 
 
 
