@@ -127,7 +127,7 @@ Dashboard > Manage Jenkins > System > Publish Over SSH
 ```
 
 - Add the following details:
-  - Paste your **private key**.
+  - Paste your **private key** of jenkins server.
 -![image](https://github.com/user-attachments/assets/eb5b775f-e49d-468c-a742-bdbac9e8cd68)
 
   - **Hostname**: Public IP of `slave1`.
