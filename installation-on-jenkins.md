@@ -56,9 +56,6 @@ sudo ./aws/install
 rm -rf awscliv2.zip aws
 aws --version
 
-# Configure AWS CLI (manual input)
-echo "=== Configure AWS CLI ==="
-aws configure
 
 # Install eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
