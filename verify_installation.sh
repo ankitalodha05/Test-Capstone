@@ -1,12 +1,10 @@
-Here's a clean and well-formatted **document version** of your environment verification script. This can be shared with your team or used as a checklist after setting up a DevOps environment on Ubuntu.
-
----
-
-## ✅ DevOps Environment Verification Script
+# ✅ DevOps Environment Verification Script
 
 Use the following script to verify that all necessary tools are properly installed and accessible on your system.
 
-### 🧪 Check Installed Tools
+---
+
+## 🧪 Check Installed Tools
 
 ```bash
 #!/bin/bash
@@ -44,7 +42,9 @@ echo -e "\nkubectl:" && kubectl version --client
 echo -e "\nTerraform:" && terraform version
 ```
 
-### 🛠 How to Use
+---
+
+## 🛠 How to Use
 
 1. Open a terminal and run:
 
@@ -67,5 +67,3 @@ echo -e "\nTerraform:" && terraform version
    ```
 
 ---
-
-Let me know if you'd like this as a downloadable `.sh` file or formatted as a PDF for documentation.
