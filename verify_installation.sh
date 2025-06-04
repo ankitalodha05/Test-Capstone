@@ -1,7 +1,7 @@
-#!/bin/bash
-
-# Verify installation of all required tools
-
+✅ Run this to check everything is installed properly:
+bash
+Copy
+Edit
 # Check Java
 echo "Java:" && java -version
 
@@ -16,8 +16,8 @@ echo "Git:" && git --version
 echo "Docker:" && docker --version
 echo "Docker Group Check (you should see your username):" && groups
 
-echo "Running Docker Hello World container..."
-docker run hello-world || echo "Docker hello-world test skipped (may need logout/relogin)"
+# Check Docker Hello World (optional – requires logout/login or newgrp docker)
+docker run hello-world
 
 # Check AWS CLI
 echo "AWS CLI:" && aws --version
@@ -30,11 +30,17 @@ echo "kubectl:" && kubectl version --client
 
 # Check Terraform
 echo "Terraform:" && terraform version
+🔍 You can also combine all into a script:
+To quickly run these checks:
 
-echo "✅ All checks complete. If you see all versions above, your environment is ready."
+bash
+Copy
+Edit
+nano verify_installation.sh
+Paste the code above, save and exit, then:
 
-# Instructions to create and run this script:
-# 1. Save this file as verify_installation.sh
-# 2. Run the following commands:
-#    chmod +x verify_installation.sh
-#    ./verify_installation.sh
+bash
+Copy
+Edit
+chmod +x verify_installation.sh
+./verify_installation.sh
