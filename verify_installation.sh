@@ -1,46 +1,71 @@
-✅ Run this to check everything is installed properly:
-bash
-Copy
-Edit
-# Check Java
-echo "Java:" && java -version
+Here's a clean and well-formatted **document version** of your environment verification script. This can be shared with your team or used as a checklist after setting up a DevOps environment on Ubuntu.
 
-# Check Python
-echo "Python:" && python3 --version
+---
+
+## ✅ DevOps Environment Verification Script
+
+Use the following script to verify that all necessary tools are properly installed and accessible on your system.
+
+### 🧪 Check Installed Tools
+
+```bash
+#!/bin/bash
+
+echo "🔍 Verifying installations..."
+
+# Check Java
+echo -e "\nJava:" && java -version
+
+# Check Python & PIP
+echo -e "\nPython:" && python3 --version
 echo "PIP:" && pip3 --version
 
 # Check Git
-echo "Git:" && git --version
+echo -e "\nGit:" && git --version
 
 # Check Docker
-echo "Docker:" && docker --version
-echo "Docker Group Check (you should see your username):" && groups
+echo -e "\nDocker:" && docker --version
+echo "Docker Group Check (your username should appear):" && groups
 
-# Check Docker Hello World (optional – requires logout/login or newgrp docker)
+# Optional: Docker Hello World Test
+echo -e "\nRunning Docker hello-world (optional):"
 docker run hello-world
 
 # Check AWS CLI
-echo "AWS CLI:" && aws --version
+echo -e "\nAWS CLI:" && aws --version
 
 # Check eksctl
-echo "eksctl:" && eksctl version
+echo -e "\neksctl:" && eksctl version
 
 # Check kubectl
-echo "kubectl:" && kubectl version --client
+echo -e "\nkubectl:" && kubectl version --client
 
 # Check Terraform
-echo "Terraform:" && terraform version
-🔍 You can also combine all into a script:
-To quickly run these checks:
+echo -e "\nTerraform:" && terraform version
+```
 
-bash
-Copy
-Edit
-nano verify_installation.sh
-Paste the code above, save and exit, then:
+### 🛠 How to Use
 
-bash
-Copy
-Edit
-chmod +x verify_installation.sh
-./verify_installation.sh
+1. Open a terminal and run:
+
+   ```bash
+   nano verify_installation.sh
+   ```
+
+2. Paste the script above, then save and exit (`Ctrl + O`, `Enter`, `Ctrl + X`).
+
+3. Make the script executable:
+
+   ```bash
+   chmod +x verify_installation.sh
+   ```
+
+4. Run the script:
+
+   ```bash
+   ./verify_installation.sh
+   ```
+
+---
+
+Let me know if you'd like this as a downloadable `.sh` file or formatted as a PDF for documentation.
